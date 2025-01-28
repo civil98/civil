@@ -1,0 +1,51 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <title>{{task_name}}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock titleside %}
+
+
+{% block contentside %}
+
+<div class="documents-container">
+    <div class="column">
+    <div class="card"
+    data-code="{{ document.code }}"
+        style="border: 1px solid #ccc; margin: 10px; padding: 10px; cursor: pointer;">
+        <h3>{% trans "document name"%} : {{ document.name }}</h3>
+        <h3>{% trans "code"%} : {{ document.code }}</h3>
+        <h3>{% trans "national ID of the Applicant"%} : {{ document.person_national_num }}</h3>
+        {% if  document.second_national_num  %}
+            <h3>{% trans "national ID of the Dependent"%} : {{ document.second_national_num }}</h3>
+        {% endif %}
+        <h3>date : {{ document.document_date }}</h3>
+        {% if document.done %}
+        <h3> {% trans "document done"%}</h3>
+        {% elif document.viewed %}
+        <h3> {% trans "document rejected"%}</h3>
+        {% else %}
+        <h3> {% trans "document pending"%}</h3>
+        {% endif %}
+        <h3 ><textarea name=" notes : " id="" cols="40" rows="6" readonly>{{ document.notes }}</textarea></h3>
+        {% if not document.done %}
+        {% if emperson.is_employee %}
+        <div style="margin: 2px;"><a href="{%url 'documents:insert_document'%}" class="btn btn-primary">{% trans "check information"%}</a></div>
+        <div style="margin: 2px;"><a href="{%url 'documents:refuse_with_note'%}" class="btn btn-primary">{% trans "refuse with note"%}</a></div>
+        {% else %}
+        <div style="margin: 2px;"><a href="{% url 'documents:send_notes'%}" class="btn btn-primary">{% trans "add note"%}</a></div>
+        <div style="margin: 2px;"><a href="{% url 'documents:delete_document'%}" class="btn btn-primary">{% trans "Delete"%}</a></div>
+        {% endif %}
+        {% endif %}
+
+    </div>
+</div>
+<button onclick="goBack()">{% trans "Cancel"%}</button>
+</div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+{% endblock contentside%}
+

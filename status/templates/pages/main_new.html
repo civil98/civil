@@ -1,0 +1,56 @@
+{% extends "pages/sidebar_new.html" %}
+{% load i18n %}
+{%block titleside%}
+    <title>{{page_name}}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .main-choice-container{
+            width: 100%;
+            justify-content: space-between;
+        }
+        .card{
+            border: 2px;
+            padding: 30%;
+            width: 75%;
+        }
+    </style>
+{% endblock titleside %}
+
+
+{% block contentside %}
+
+
+<div class="choices-container main-choice-container" >
+    {% for choice in choices %}
+        <div class="card"
+            data-name="{{choice}}"
+            style="border: 1px solid #ccc; margin: 10px; padding: 10px; cursor: pointer;">
+            <h3>{{ choice }}</h3>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.card').on('click', function() {
+            var name = $(this).data('name');
+
+            $.ajax({
+                url: "{% url 'users:get_choice' %}",
+                type: "POST",
+                data: {
+                    'name': name,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    window.location.href = response.url;
+                },
+                error: function(xhr) {
+                    alert('حدث خطأ: ' + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock contentside%}

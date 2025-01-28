@@ -1,0 +1,29 @@
+{% extends "pages/base.html" %}
+{%block title%}
+    sign up
+{% endblock %}
+{% block content %}
+{% load i18n %}
+    <div class="container">
+        <h1>{% trans "Create an Account" %}</h1>
+        
+        <form method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- عرض الحقول الخاصة بالنموذج -->
+            
+            {% if error %}
+                <div class="error">
+                    <ul>
+                        {% for err in error %}
+                            <li>{{ err }}</li>  <!-- عرض الأخطاء -->
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            
+            <button type="submit">{% trans "Sign Up" %}</button>
+        </form>
+
+        <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Log in" %}</a></p>
+    </div>
+{% endblock %}

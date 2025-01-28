@@ -1,0 +1,61 @@
+{% extends "pages/sidebar.html" %}
+
+{%block titleside%}
+    <title>{{page_name}}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .card{
+            border: 2px;
+            padding: 3%;
+            width: 75%;
+            border: 1px solid #ccc;
+            margin: 5%;
+            cursor: pointer;
+        }
+    </style>
+{% endblock titleside %}
+
+
+{% block contentside %}
+
+<div class="column" >
+<div class="documents-container">
+    {% for document in documents %}
+        <div class="card"
+            data-name="{{ document }}" >
+            <h3>{{ document }}</h3>
+        </div>
+    {% endfor %}
+</div>
+<button onclick="goBack()">Cancel</button>
+
+ </div>
+
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+    $(document).ready(function(){
+        $('.card').on('click', function() {
+            var name = $(this).data('name');
+
+            $.ajax({
+                url: "{% url 'documents:get_document' %}",
+                type: "POST",
+                data: {
+                    'name': name,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    window.location.href = response.url;
+                },
+                error: function(xhr) {
+                    alert('حدث خطأ: ' + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock contentside%}

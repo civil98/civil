@@ -1,0 +1,92 @@
+{% extends "pages/base_new.html" %}
+{% load i18n %}
+{%block title%}
+
+
+{%block titleside%}
+{% endblock titleside %}
+
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    a.highlighted {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .sidebar {
+        z-index: 999;
+        justify-content: space-between;
+        position: fixed;
+        top: 30px;
+        right: -300%;
+        height: 100%;
+        background: linear-gradient(90deg, #35373a, #909494);
+        color: rgb(238, 243, 244);
+        transition: right 0.3s;
+        padding: 35px;
+    }
+    .sidebar.active {
+        right: 0;
+    }
+    .sidebar a {
+        color: rgb(251, 248, 248);
+        text-decoration: none;
+        padding: 25px;
+        margin-top: 10px;
+    }
+    .toggle-btn {
+        margin: 20px;
+    }
+</style>
+
+{% endblock title%}
+
+{% block sidebaropen %}
+    <a href="#" id="toggleSidebar"><i class="fas fa-list"></i> {% trans "menu"%} </a>
+{% endblock sidebaropen %}
+
+{% block content %}
+        {% block contentside %}
+        {% endblock contentside%}
+        <div class="sidebar" id="sidebar">
+        <h5> {% trans "menu" %} </h5><br><br>
+        <a href="{% url 'registering:log_out' %}"><i class="fas fa-sign-out-alt"></i>  {% trans "logout"%} </a><br><br>
+        <a href="{% url 'users:add_person_information'%}" id="add_person_information">{% trans "add personal information"%}</a><br><br>
+        <a href="{% url 'documents:show_new_documents'%}" id="show_new_documents"> {% trans "show new documents"%}</a><br><br>
+        <a href="{% url 'payment:orders'%}" id="orders"> {% trans "pay for orders"%}</a><br><br>
+        <a href="{% url 'payment:view_payments'%}" id="view_payments"> {% trans "show payments "%}</a><br><br>
+        <a href="#" id="closeSidebar">{% trans "close"%}</a>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const closeButton = document.getElementById('closeSidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a');
+
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    links.forEach(function(otherLink) {
+                        otherLink.classList.remove('highlighted');
+                    });
+                    this.classList.add('highlighted');
+                });
+            });
+        });
+    </script>
+{% endblock content%}

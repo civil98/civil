@@ -1,0 +1,51 @@
+{% extends "pages/base.html" %}
+{%block title%}
+<title> {{task_name}} </title>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3%;
+        background-color: #f8f9fa; /* لون خلفية الصفحة */
+    }
+    .card {
+        width: 90%; /* عرض البطاقة */
+        max-width: 400px;
+        border: 2px solid #007bff; /* لون الحواف */
+        border-radius: 10px; /* جعل الحواف دائرية */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    @media (max-width:100%) {
+        .container {
+            padding: 10%; /* تقليل الهامش على الشاشات الصغيرة */
+            height: 100vh; /* إلغاء تعيين الارتفاع لسماح بتدفق العناصر */
+            justify-content: center;
+            align-items: center;
+            margin-top: 10%;
+
+        }
+    }
+
+</style>
+{% endblock %}
+{% block content %}
+{{error}}
+<div class="container-fluid">
+    <div class="container">
+    <div class="card" style=" border-radius: 5%; background: rgb(79, 229, 240);">
+        <div class="card-body" style="width: fit-content ;">
+            <div style="display: flex; ">
+                <h5 class="card-title"></h5>	 
+            </div>
+            <form method="POST">
+                {%csrf_token%}
+                <div style="padding: 15px;"> user name {{user.username}} </div>
+                <div style="padding: 15px;"> password {{user.password}} </div>
+                <input type="submit" value="{{task_name}}" style="margin: 15px; align-items: center;" >
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

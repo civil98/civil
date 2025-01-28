@@ -1,0 +1,85 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+	        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+	        crossorigin="anonymous">
+    <title> task_name</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 1fr);
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .show{
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+        .image_show{
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+{% endblock titleside%}
+{% block contentside %}
+    {{error}}
+    <div class="column"  style="width: 100%;">
+        <p>{% trans "welcome"%} {{person_name}}</p>
+        {% trans "please assert your event information"%}
+    <form method="POST"  enctype="multipart/form-data">
+            <div class = "column">
+                <div class="show">
+                    {%csrf_token%}
+                    <div class = "col-6">{% trans "national ID"%} : </div><div class = "col-6">{{event.partner_national_num}}</div>
+                    <div class = "col-6">{% trans "event type"%} : </div><div class = "col-6"> {{event.marrid}}</div>
+                    <div class = "col-6">{% trans "event date"%} : </div><div class = "col-6">{{event.date_of_event}}</div>
+                    <div class = "col-6">{% trans "event place"%} : </div><div class = "col-6">{{event.place_of_event}}</div>
+                    <div class = "col-6">{% trans "image"%} : </div><div class = "col-6">{{event.image}}</div>
+                </div>
+                <input type="submit" value="save">
+            </div>
+        </form>
+        <div  class="image_show">
+            {% if partner.image.url %}
+            <div>
+                <img src="{{ partner.image.url }}" alt="صورة المستخدم">
+            </div>
+            {% endif %}
+        </div>
+        {% if error ==  'please assert a person first' %}
+        <div>
+            <a href="{% url 'users:partner_in'%}"><button>{% trans "insert partner"%}</button>  </a>
+        </div>
+        {% endif %}
+        <button onclick="goBack()">{% trans "Cancel"%}</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+{% endblock contentside%}
+
+
+
+
+

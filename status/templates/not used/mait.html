@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة جانبية</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* مخفي من اليسار */
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            color: white;
+            transition: left 0.3s;
+            padding: 15px;
+        }
+        .sidebar.active {
+            left: 0; /* يظهر عند تفعيل القائمة */
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+        .toggle-btn {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn btn-primary toggle-btn" id="toggleSidebar">خيارات</button>
+
+    <div class="sidebar" id="sidebar">
+        <h5>خيارات</h5>
+        <a href="#" id="changeLanguage">تغيير اللغة</a><br>
+        <a href="#" id="changeTheme">تغيير الثيم</a><br>
+        <a href="#" id="closeSidebar">إغلاق</a>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const closeButton = document.getElementById('closeSidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

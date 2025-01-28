@@ -1,0 +1,471 @@
+/////////////////////////
+$.ajax({
+    url: "{% url 'get_partner' %}", 
+    type: "POST",
+    data: {
+        'first_name': name,
+        'national_num': nationalId,
+        'csrfmiddlewaretoken': '{{ csrf_token }}' 
+    },
+    success: function(response) {
+       // window.location.href = response.url;
+    },
+    error: function(xhr) {
+        alert('حدث خطأ: ' + xhr.responseText);
+    }
+});
++++++
+@csrf_exempt  
+def get_partner(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        national_num = request.POST.get('national_num')
+        url = f'show_marriage_register?first_name={first_name}&national_num={national_num}'
+        return JsonResponse({'status': 'redirect', 'url': url})
+    return JsonResponse({'status': 'fail'}, status=400)
+/////////////////////
+<h3>your id : {{ document.person_national_num }}</h3>
+            <h3>second id : {{ document.second_national_num }}</h3>
+            <h3>date : {{ document.document_date }}</h3>
+            <h3>status : {{ document.done }}</h3>
+            <h3>notes : {{ document.notes }}</h3>
+
+///////////////////////////////
+<!DOCTYPE html>
+<html>
+<head>
+    <title>صفحة ما</title>
+</head>
+<body>
+    <h1>محتوى الصفحة</h1>
+
+    <script>
+        window.addEventListener('beforeunload', function (e) {
+            // إرسال طلب AJAX عند الخروج من الصفحة
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/exit_page_action/', true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
+/////////////////
+<h1>بيانات المستخدم</h1>
+<p>الاسم: {{ user_data.name }}</p>
+<p>البريد الإلكتروني: {{ user_data.email }}</p>
+{% if user_data.image %}
+    <img src="{{ user_data.image.url }}" alt="صورة المستخدم">
+{% else %}
+    <img src="{% static 'default_image.jpg' %}" alt="صورة افتراضية">
+{% endif %}
+<form method="post" action="{% url 'confirm_data' user_data.id %}">
+    {% csrf_token %}
+    <button type="submit" name="accept">قبول البيانات</button>
+    <button type="submit" name="reject">رفض البيانات</button>
+</form>
+///////////////////////
+
+++++++
+<input type="text" id="datepicker">
+<button id="datepicker-btn" type="button" class="btn btn-primary">اختيار التاريخ</button>
+**************
+<script>
+    $(document).ready(function() {
+      $('#datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+      });
+  
+      $('#datepicker-btn').click(function() {
+        $('#datepicker').datepicker('show');
+      });
+    });
+  </script>
+  //////////////////////////////
+  <form method="post">
+    {% csrf_token %}
+    {{ form.date }}
+    <button type="button" id="date-picker-btn" class="btn btn-primary">اختيار التاريخ</button>
+    <input type="submit" value="Submit">
+</form>
+*****
+<script>
+    $(document).ready(function() {
+        $('#id_date').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        });
+
+        $('#date-picker-btn').click(function() {
+            $('#id_date').datepicker('show');
+        });
+    });
+</script>
+////////////////////from django.db.models import F
+from myapp.models import Table1, Table2
+
+# تحديد الحقول والقيم التي تريد نقلها بين الجدولين
+fields_to_update = {
+    'field1': F('table1_field1'),
+    'field2': F('table1_field2'),
+    'field3': F('table1_field3'),
+}
+
+# البحث عن العنصر في الجدول الثاني أو إنشاءه إذا لم يكن موجودًا
+obj, created = Table2.objects.get_or_create(id=2, defaults={})
+
+# تحديث البيانات باستخدام القاموس المعرف سابقًا
+obj.update(**fields_to_update)
+////////////////////////////
+<div class = "col-6">first name : </div><div class = "col-6">{{person.first_name}}</div>
+                    <div class = "col-6">last name : </div><div class = "col-6"> {{person.last_name}}</div>
+                    <div class = "col-6">national id : </div><div class = "col-6">{{person.national_num}}</div>
+                    <div class = "col-6">dad national id : </div><div class = "col-6">{{person.national_dad}}</div>
+                    <div class = "col-6">mom national id : </div><div class = "col-6">{{person.national_mom}}</div>
+                    <div class = "col-6">birth place : </div><div class = "col-6">{{person.birth_place}}</div>
+                    <div class = "col-6">birth date : </div><div class = "col-6">{{person.birth_date}}</div>
+                    <div class = "col-6">place of issue : </div><div class = "col-6">{{person.place_of_issue}}</div>
+                    <div class = "col-6">number of issue : </div><div class = "col-6">{{person.number_of_issue}}</div>
+                    <div class = "col-6">religion :  </div><div class = "col-6">{{person.religion}}</div>
+                    <div class = "col-6">gender :  </div><div class = "col-6">{{person.gender}}</div>
+                    <div class = "col-6">status :  </div><div class = "col-6">{{person.status}}</div>
+                    <div class = "col-6">choose image :  </div><div class = "col-6">{{person.image}}</div>
+                /////////////////////////////////
+                <div class = "col-6">national num : </div><div class = "col-6">{{partner.national_num}}</div>
+                {% if error == 'please assert a person first' %}
+                <div class = "col-6">first_name :  </div><div class = "col-6">{{partner.first_name}}</div>
+                <div class = "col-6">last_name :  </div><div class = "col-6">{{partner.last_name}}</div>
+                <div class = "col-6">dad_name: </div><div class = "col-6">{{partner.dad_name}}</div>
+                <div class = "col-6">national_dad :  </div><div class = "col-6">{{partner.national_dad}}</div>
+                <div class = "col-6">mom_name :  </div><div class = "col-6">{{partner.mom_name}}</div>
+                <div class = "col-6">national_mom :  </div><div class = "col-6">{{partner.national_mom}}</div>
+                <div class = "col-6">birth_place : </div><div class = "col-6">{{partner.birth_place}}</div>
+                <div class = "col-6">birth_date :  </div><div class = "col-6">{{partner.birth_date}}</div>
+                <div class = "col-6">date_of_issue :  </div><div class = "col-6">{{partner.date_of_issue}}</div>
+                <div class = "col-6">place_of_issue :  </div><div class = "col-6">{{partner.place_of_issue}}</div>
+                <div class = "col-6">number_of_issue : </div><div class = "col-6">{{partner.number_of_issue}}</div>
+                <div class = "col-6">religion :  </div><div class = "col-6">{{partner.religion}}</div>
+                <div class = "col-6">gender :  </div><div class = "col-6">{{partner.gender}}</div>
+                {% else %}
+                <div class = "col-6">place_of_event :  </div><div class = "col-6">{{partner.place_of_event}}</div>
+                <div class = "col-6">date_of_event :  </div><div class = "col-6">{{partner.date_of_event}}</div>
+                {% endif %}
+                <div class = "col-6">status :  </div><div class = "col-6">{{partner.status}}</div>
+                <div class = "col-6">choose image :  </div><div class = "col-6">{{partner.image}}</div>
+////////////////
+<div class = "col-6">show image :  </div><div class = "col-6"><img src="{{ person.image.url }}" alt="no image"></div>
+                //////////////////////
+                def get_person(request):
+                name = user_is_logined(request=request)
+                logged_person = request.session.get('employee','0')
+                if logged_person =='0':
+                    person = Person.objects.get(person_name=name)
+                else :
+                    document_code = request.session.get('document_code','0')
+                    document = Document.objects.get(code=document_code)
+                    person_national_num =document.person_national_num
+                    if Person.objects.filter(national_num=person_national_num).exists() :
+                        person = Person.objects.get(national_num=person_national_num)
+                    else :
+                        person = TaskPerson.objects.get(national_num=person_national_num)
+                return person
+///////////////////
+# models.py
+from django.db import models
+
+class MyModel(models.Model):
+    image = models.ImageField(upload_to='images/')
+
+# forms.py
+from django import forms
+from .models import MyModel
+
+class MyForm(forms.ModelForm):
+    class Meta:
+        model = MyModel
+        fields = ['image']
+
+# views.py
+from django.shortcuts import render
+from .forms import MyForm
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = MyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MyForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+# upload_image.html
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Upload</button>
+</form>
+//////////////////
+enctype="multipart/form-data
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    # Your URL patterns here
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+    <button onclick="goBack()">Cancel</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+        ////////
+        // عندما يحاول المستخدم العودة
+window.onpopstate = function(event) {
+    // إعادة توجيه المستخدم
+    window.history.forward();
+};
+
+// تحديث تاريخ المتصفح لمنع العودة
+history.pushState(null, null, location.href);
+window.onbeforeunload = function() {
+    history.pushState(null, null, location.href);
+};
+///////////////////////
+window.addEventListener('pageshow', function(event) {
+    var historyTraversal = event.persisted || 
+                          (typeof window.performance != 'undefined' && 
+                               window.performance.navigation.type === 2);
+    if (historyTraversal) {
+        // إعادة تحميل الصفحة
+        window.location.reload();
+    }
+});
+/////////////////
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+def my_view(request):
+    try:
+        # Code that might raise an exception
+        # For example:
+        result = 1 / 0  # This will raise a ZeroDivisionError
+    except Exception as e:
+        # Log the exception for debugging purposes
+        print(f"An error occurred: {e}")
+        # Display an error message to the user
+        messages.error(request, "حدثت مشكلة غير متوقعة. يرجى المحاولة مرة أخرى في وقت لاحق.")
+        return HttpResponseRedirect(reverse('my_redirect_url'))
+        ///////////////////
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Your existing CSS styles */
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .navbar .menu {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .navbar .menu a {
+                padding: 5px 10px;
+            }
+            .navbar .logo {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content -->
+</body>
+</html>
+////////////////////////////////
+.nav {
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #9eb8e0, #a1e6eb);
+    padding: 2% 3%;
+    width: 100%;
+    margin-bottom:3% ;
+ 
+}
+.nav a {
+    color: rgb(33, 27, 27);
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+.nav a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+.nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.nav .menu {
+    gap: 10px;
+}
+.nav .menu a {
+    align-items: center;
+    padding: 5px 10px; 
+}
+.nav .menu i {
+    margin-right: 5px;
+}
+.maindiv{
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: 10%;
+    }
+    /////////////////////////////////////
+    @media (max-width) {
+        .nav {
+            max-height: 3%;
+            padding: 10%;
+            margin-bottom:3% ;
+        }
+        .nav .menu {
+            flex-direction: row;
+            align-items: center;
+            
+        }
+        
+        .nav .logo {
+            font-size: 1.2em;
+        }
+        .fotter{
+            flex-direction: column;
+        }
+        .maindiv{
+            margin-top: 9%;
+            width: 100%;
+        }
+    }
+    //////////////////////////
+    <form method="POST" action="">
+        {%csrf_token%}
+        {{user}}
+        <input type="submit" value="save">
+    </form>
+    ///////////////////////////
+    
+def login_employee(request):
+    
+task_name = 'login as employee'
+error = 'assert 12345'
+if request.session.get('employee','00000000000') != '00000000000' :
+    del request.session['employee']
+    request.user.is_staff = False
+    return redirect(main)
+if request.method == "POST":
+    password = request.POST['password']
+    if password == '12345' :
+        name = user_is_logined(request=request)
+        request.session['employee'] = name
+        request.user.is_staff = True
+        return redirect(show_documents)
+    else :
+        error = 'wrong password assert 12345'
+return render(request,'registering/pass.html',{'form':Login_employee,'error':error,'task_name':task_name})
+
+def log_out(request):
+logout(request)
+try :
+del request.session['employee']
+except:
+pass
+return redirect('../registering/login')        
+
+
+'''def change_language(request, lang):
+translation.activate(lang)
+request.session[translation.LANGUAGE_SESSION_KEY] = lang
+return redirect(request.META.get('HTTP_REFERER', '/')) '''
+//////////////////////////
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* عدد الأعمدة */
+    gap: 20px; /* المسافة بين العناصر */
+    padding: 20px; /* حشوة داخلية للشبكة */
+}
+
+.grid-item {
+    background-color: #f0f0f0; /* لون خلفية العنصر */
+    border: 1px solid #ccc; /* حدود العنصر */
+    padding: 20px; /* حشوة داخلية داخل العنصر */
+    text-align
+}
+///////////////////////
+try:
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.ehlo()
+            server.starttls()
+            server.quit()
+            print("Connection successful")
+        except Exception as e:
+            print(f"Error: {e}")
+            print('////////////////////////////')
+        try :    
+            send_mail(
+                'Test Email',
+                'This is a test email sent from Django.',
+                'civilstatusplatform@gmail.com',
+                ['aliabbas19992@gmail.com'],
+                fail_silently=False,
+            )
+            print("Email sent successfully")
+        except BadHeaderError:
+            print("Invalid header found.")
+        except Exception as e:
+            print(f"Error sending email: {e}")
+///////////////////
+{% if user.is_authenticated %}
+        {% if user.userprofile.is_employee %}
+            <style>
+                /* تنسيق خاص بالموظف */
+                body {
+                    background-color: #e0f7fa;
+                }
+            </style>
+        {% else %}
+            <style>
+                /* تنسيق خاص بالمستخدم العادي */
+                body {
+                    background-color: #fce4ec;
+                }
+            </style>
+        {% endif %}
+    {% endif %}
+    ///////////////////////////        
+
+
+

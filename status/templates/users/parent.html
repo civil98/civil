@@ -1,0 +1,73 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+	        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+	        crossorigin="anonymous">
+    <title> {% trans "add person"%}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 1fr);
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .show{
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            align-items: center;
+
+        }
+        .image_show{
+            padding: 10px;
+            align-items: center;
+        }
+    </style>
+{% endblock titleside%}
+{% block contentside %}
+    {{error}}
+    <div class="column" style="width: 100%;">
+        <p>{% trans "welcome"%} {{person_name}}</p>
+        <p>{% trans "please assert your parent information"%}</p>
+        <form method="POST"  enctype="multipart/form-data">
+            <div class = "column">
+
+                <div class="show">
+                    {%csrf_token%}
+                    <div class = "col-6">{% trans "first name"%} : </div><div class = "col-6">{{parent.first_parent_name}}</div>
+                    <div class = "col-6">{% trans "last name"%} : </div><div class = "col-6"> {{parent.last_parent_name}}</div>
+                    <div class = "col-6">{% trans "national num"%} : </div><div class = "col-6">{{parent.national_parent_num}}</div>
+                    <div class = "col-6">{% trans "gender"%} :  </div><div class = "col-6">{{parent.gender_parent}}</div>
+                    <div class = "col-6">{% trans "choose image"%} :  </div><div class = "col-6">{{parent.image}}</div>
+                </div>
+                <input type="submit" value="save">
+            </div>
+        </form>
+        <div  class="image_show">
+            {% if parent.image.url %}
+            <div>
+                <img src="{{ parent.image.url }}" alt="صورة المستخدم">
+            </div>
+            {% endif %}
+        </div>
+        <button onclick="goBack()">{% trans "Cancel"%}</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+{% endblock contentside%}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load i18n %}
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/paymentstyle.css' %}">
+    <title>{% trans "Your payments"%}</title>
+</head>
+<body>
+    {{error}}
+    <div class="container">
+        <h1>{% trans "Your payments"%}</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for payment in payments %}
+                <div class="payment-item">
+                    <span>{{ payment }}</span>
+                </div>
+            {% endfor %}
+        </form>
+        <a href="{% url 'users:main' %}"><button> {% trans "cancel"%} </button></a>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

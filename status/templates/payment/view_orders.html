@@ -1,0 +1,54 @@
+{% extends "pages/sidebar.html" %}
+
+    {% load i18n %}
+{% load static %}
+{%block titleside%}
+    <link rel="stylesheet" href="{% static 'css/paymentstyle.css' %}">
+    <title>{% trans "Your Orders"%}</title>
+    <script>
+        function updateTotalCost() {
+            const checkboxes = document.querySelectorAll('input[name="selected_orders"]');
+            const balance = parseFloat(document.getElementById('user-balance').innerText);
+            let totalCost = 0;
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const cost = parseFloat(checkbox.getAttribute('data-cost'));
+                    totalCost += cost;
+                }
+            });
+
+            document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+
+            checkboxes.forEach(checkbox => {
+                const cost = parseFloat(checkbox.getAttribute('data-cost'));
+                if (totalCost + cost > balance && !checkbox.checked) {
+                    checkbox.disabled = true;
+                } else {
+                    checkbox.disabled = false;
+                }
+            });
+        }
+    </script>
+{% endblock titleside %}
+{% block contentside %}
+    <div class="container">
+        <h1>{% trans "Your Orders"%}</h1>
+        <h2 >{{ request.user.username }} {% trans "balance is"%} <span id="user-balance">{{ balance.balance }}</span></h2>
+        <h2>{% trans "Total Cost"%}: <span id="total-cost">0.00</span></h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="post" action="">
+            {% csrf_token %}
+            {% for order in orders %}
+                <div class="order-item">
+                    <input type="checkbox" name="selected_orders" value="{{ order.id }}" data-cost="{{ order.cost }}" onclick="updateTotalCost()">
+                    <span>{{ order }} - Cost: {{ order.cost }} - Status: {{ order.status }}</span>
+                </div>
+            {% endfor %}
+            <button type="submit">{% trans "Proceed to Payment"%}</button>
+        </form>
+        <a href="{% url 'payment:get_payment' %}"><button>{% trans "Pay"%}</button></a>
+    </div>
+    {% endblock contentside%}

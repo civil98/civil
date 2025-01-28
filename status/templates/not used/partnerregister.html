@@ -1,0 +1,92 @@
+{% extends "pages/sidebar.html" %}
+{%block titleside%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+    crossorigin="anonymous">
+<title>{{page_name}} register</title>
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,  1fr);
+        gap: 10px;
+    }
+    .grid-item {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    .show{
+        padding: 10px; 
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 10px;
+    }
+    .first{
+        padding: 10px; 
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    #data{
+        padding: 10px;
+    }
+</style>
+{%endblock titleside %}
+
+{%block contentside %}
+    <div class="container">
+    <p>welcome {{person.person_name}}</p>
+    <div class = "row">  
+        <div class="first">
+            <div id="data" class = "col-12">place of issue :  {{person.place_of_issue}} </div>
+            <div id="data" class = "col-12">number of issue :  {{person.number_of_issue}} </div>
+        </div>
+        <div class="show" >
+            <div id="data" class = "col-12 row-2"><div class = "row"> name  </div> <div class = "row"> national number </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> sur name </div> <div class = "row">  </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> dads name </div> <div class = "row"> national number </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> moms name </div> <div class = "row"> national number </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> date and  </div> <div class = "row"> place birth </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> religion </div> <div class = "row">  </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> gender </div> <div class = "row">  </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> status </div> <div class = "row">  </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> date issue </div> <div class = "row">   </div></div>
+        </div>
+        
+        {% for person in family %}
+        <div class="show">
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.first_name}} </div> <div class = "row">{{person.national_num}}</div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.last_name}} </div> <div class = "row"></div></div>
+            <div id="data" class = "col-12 row-2">
+                {% for parent in parents %}
+                {% if parent.national_num == person.national_dad %}
+                <div class = "row"> {{parent.first_name}} {{parent.last_name}} </div> <div id="data" class = "row">{{parent.national_num}}</div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div id="data" class = "col-12 row-2">
+                {% for parent in parents %}
+                {% if parent.national_num == person.national_mom %}
+                <div class = "row"> {{parent.first_name}} {{parent.last_name}} </div> <div class = "row">{{parent.national_num}}</div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.birth_place}}  </div><div class = "row">{{person.birth_date|date:"y-m-d"}} </div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.religion}} </div><div class = "row"></div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.gender}} </div><div class = "row"></div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.status}} </div><div class = "row"></div></div>
+            <div id="data" class = "col-12 row-2"><div class = "row"> {{person.date_of_issue}} </div><div class = "row"></div></div>  
+        </div>
+        {% endfor %} 
+        <div class="first">
+            <div id="data" class = "col-12">place of {{page_name}} register :  {{event.place_of_event}} </div>
+            <div id="data" class = "col-12">date of {{page_name}} register :  {{event.date_of_event}} </div>
+        </div>
+    </div>
+</div>
+<a style="margin: 1%;" href="{% url 'insert_task' %}" class="btn btn-primary">get {{page_name}} register</a>
+{%endblock contentside %}
+

@@ -1,0 +1,43 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <title>{{task_name}}</title>
+{% endblock titleside %}
+{% block contentside %}
+{{error}}
+<div style="width: fit-content;  margin-top: 15%;">
+    <div class="card" style="width:100% ; border-radius: 5%; background: rgb(79, 229, 240); margin-left: 35%; margin-top: 35%;">
+        <div class="card-body" style="width: auto ;">
+            <div style="display: flex; ">
+                <h5 class="card-title"></h5>
+            </div>
+            <form method="POST">
+                {%csrf_token%}
+                <div style="padding: 15px;">{{form}} </div>
+                <div onclick="nobeback()">
+                    <input type="submit" value="{{task_name}}" style="margin: 15px; align-items: center;" >
+                <button onclick="goBack()">{% trans "Cancel"%}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    function goBack() {
+        window.history.back();
+    }
+    function nobeback(){
+        history.go(-2);
+        window.onpopstate = function(event) {
+            if (event.state) {
+                window.location.href = event.state;
+            } else {
+                window.location.href = "main.html";
+            }
+        };
+
+    }
+
+</script>
+{% endblock contentside%}

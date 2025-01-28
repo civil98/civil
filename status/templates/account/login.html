@@ -1,0 +1,30 @@
+{% extends "registering/base.html" %}
+
+    {% load i18n %}
+{% block title %}{% trans "Log In"%}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card" style="width: 400px;">
+        <div class="card-body">
+            <h5 class="card-title text-center">Log In</h5>
+
+            {% if messages %}
+                <div class="alert alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                        <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+            <p class="mt-3 text-center">{% trans "Don't have an account?"%} <a href="{% url 'account_signup' %}">{% trans "Sign up"%}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

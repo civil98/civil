@@ -1,0 +1,64 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <title>{% trans "About the Platform" %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+{% endblock titleside %}
+{% block contentside %}
+    <div class="container">
+        <h1>{% trans "About the Platform:" %}</h1>
+        <p>{% trans "Our platform is an initiative aimed at facilitating the procedures of civil status transactions for Syrian expatriates, providing them with direct access to a variety of services in an easy and convenient manner. The platform offers a wide range of services including adding personal information, extracting individual and family status documents, as well as marriage, death, and divorce contracts." %}</p>
+
+        <h2>{% trans "Our Services:" %}</h2>
+        <ul>
+            <li><strong>{% trans "Adding Personal Information:" %}</strong> {% trans "Users can easily and securely input and update their personal information through the platform, helping them maintain accurate and up-to-date records." %}</li>
+            <li><strong>{% trans "Extracting Individual and Family Status Documents:" %}</strong> {% trans "The platform provides an easy service for extracting individual and family status documents, enabling users to obtain official documents quickly and efficiently." %}</li>
+            <li><strong>{% trans "Marriage, Death, and Divorce Contracts:" %}</strong> {% trans "Users can create and extract marriage, death, and divorce contracts easily through the platform, with the necessary support and guidance to complete these processes." %}</li>
+            <li><strong>{% trans "Electronic Payment Feature:" %}</strong> {% trans "The platform offers a secure and reliable online payment method, allowing users to complete payment transactions easily, smoothly, and securely." %}</li>
+        </ul>
+
+        <h2>{% trans "Our Vision:" %}</h2>
+        <p>{% trans "We strive to make civil status transactions smoother and easier for Syrian expatriates through our digital platform, which provides innovative and reliable solutions to meet their needs." %}</p>
+
+        <h2>{% trans "Our Values:" %}</h2>
+        <ul>
+            <li><strong>{% trans "Efficiency:" %}</strong> {% trans "We aim to deliver high-quality services with the highest levels of efficiency." %}</li>
+            <li><strong>{% trans "Transparency:" %}</strong> {% trans "We are committed to providing a transparent and trustworthy environment for users." %}</li>
+            <li><strong>{% trans "Professionalism:" %}</strong> {% trans "We adhere to professionalism and ethics in delivering our services." %}</li>
+        </ul>
+
+        <p><strong>{% trans "Join us today and benefit from a unique experience to facilitate your government transactions with ease and confidence." %}</strong></p>
+    </div>
+{% endblock contentside%}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% load i18n %}
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/paymentstyle.css' %}">
+    <title>{% trans "Payment"%}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{% trans "Payment"%}</h1>
+        {{error}}
+        <form method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="total_cost" value="{{ total_cost }}">
+            <input type="text" name="payment_reference" placeholder="{% trans 'Enter Payment Reference'%}" required>
+            <button type="submit">{% trans "Confirm Payment"%}</button>
+        </form>
+        <button onclick="goBack()">back</button>
+
+    </div>
+    <script>
+        function goBack() {
+            window.location.href = "{% url 'payment:orders' %}";
+    }
+    </script>
+</body>
+</html>

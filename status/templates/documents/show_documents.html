@@ -1,0 +1,51 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <title>{{task_name}}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock titleside %}
+
+
+{% block contentside %}
+<div class="column">
+<div class="documents-container">
+    {% for document in documents %}
+        <div class="card"
+            data-code = "{{ document.code }}"
+            style="border: 1px solid #ccc; margin: 10px; padding: 10px; cursor: pointer;">
+            <h3>{% trans "document name"%} : {{ document.name }}</h3>
+            <h3>{% trans "code"%} : {{ document.code }}</h3>
+            <h3>{% trans "date"%} : {{ document.document_date }}</h3>
+            {% if document.done %}
+            <h3> {% trans "document done"%}</h3>
+            {% elif document.viewed %}
+            <h3> {% trans "document rejected"%}</h3>
+            {% elif document.paid %}
+            <h3> {% trans "document pending"%}</h3>
+            {% else %}
+            <h3> {% trans "document not paid"%}</h3>
+            {% endif %}        </div>
+    {% endfor %}
+    <button style="margin-bottom: 35%;"
+    onclick="goBack()">Cancel</button>
+
+</div>
+</div>
+
+<script>
+
+        function goBack() {
+            window.history.back();
+        }
+    $(document).ready(function(){
+        $('.card').on('click', function() {
+            var code = $(this).data('code');
+            var url = `review_task?code=${code}`;
+            window.location.href = url;
+        });
+    });
+
+
+</script>
+
+{% endblock contentside%}

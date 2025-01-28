@@ -1,0 +1,92 @@
+{% extends "pages/sidebar.html" %}
+{% load i18n %}
+{%block titleside%}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+	        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+	        crossorigin="anonymous">
+    <title> {{task_name}}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 1fr);
+            gap: 10px;
+        }
+        .grid-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .show{
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+        .image_show{
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+{% endblock titleside%}
+{% block contentside %}
+    {{error}}
+    <div class="column"style="width: 100%;">
+    <form method="POST"  enctype="multipart/form-data">
+            <div class = "column">
+                <div class="show">
+                    {%csrf_token%}
+                    <div class = "col-6">{% trans "first name"%} : </div><div class = "col-6">{{person.first_name}}</div>
+                    <div class = "col-6">{% trans "last name"%} : </div><div class = "col-6"> {{person.last_name}}</div>
+                    <div class = "col-6">{% trans "national id"%} : </div><div class = "col-6">{{person.national_num}}</div>
+                    <div class = "col-6">{% trans "dad name"%} : </div><div class = "col-6"> {{person.dad_name}}</div>
+                    <div class = "col-6">{% trans "dad national id"%} : </div><div class = "col-6">{{person.national_dad}}</div>
+                    <div class = "col-6">{% trans "mom name"%} : </div><div class = "col-6"> {{person.mom_name}}</div>
+                    <div class = "col-6">{% trans "mom national id"%} : </div><div class = "col-6">{{person.national_mom}}</div>
+                    <div class = "col-6">{% trans "birth place"%} : </div><div class = "col-6">{{person.birth_place}}</div>
+                    <div class = "col-6">{% trans "birth date"%} : </div><div class = "col-6">{{person.birth_date}}</div>
+                    <div class = "col-6">{% trans "place of issue"%} : </div><div class = "col-6">{{person.place_of_issue}}</div>
+                    <div class = "col-6">{% trans "number of issue"%} : </div><div class = "col-6">{{person.number_of_issue}}</div>
+                    <div class = "col-6">{% trans "religion"%} :  </div><div class = "col-6">{{person.religion}}</div>
+                    <div class = "col-6">{% trans "gender"%} :  </div><div class = "col-6">{{person.gender}}</div>
+                    <div class = "col-6">{% trans "status"%} :  </div><div class = "col-6">{{person.status}}</div>
+                    <div class = "col-6">{% trans "date of issue"%} : </div><div class = "col-6">{{person.date_of_issue}}</div>
+                </div>
+                {% if error != 'the person had been saved succefully' %}
+                {% if error != 'the asked person can not modify' %}
+                <input type="submit" value="save">
+                {% endif %}
+                <a href="{% url 'documents:refuse_with_note' %}"><button> {% trans "refuse with note"%} </button></a>
+                {% endif %}
+            </div>
+            </form>
+            <div  class="image_show">
+                {% if person.image %}
+                <div>
+                    <img src="{{ person.image.url }}" alt="صورة المستخدم">
+                </div>
+                {% endif %}
+            </div>
+            {% if error == 'Data saved successfully!' %}
+            <a href="{% url 'documents:show_documents' %}"><button> {% trans "go back"%} </button></a>
+            {% else %}
+            <button onclick="goBack()">{% trans "Cancel"%}</button>
+            {% endif %}
+        </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        </script>
+{% endblock contentside%}

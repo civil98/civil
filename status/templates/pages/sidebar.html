@@ -1,0 +1,108 @@
+{% extends "pages/base.html" %}
+{% load i18n %}
+{%block title%}
+
+
+{%block titleside%}
+{% endblock titleside %}
+
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        cursor: pointer;
+    }
+
+    a.highlighted {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .sidebar {
+        z-index: 999;
+        justify-content: space-between;
+        position: fixed;
+        top: 30px;
+        right: -300%;
+        height: 100%;
+        background: linear-gradient(90deg, #35373a, #909494);
+        color: rgb(238, 243, 244);
+        transition: right 0.3s;
+        padding: 35px;
+    }
+    .sidebar.active {
+        right: 0;
+    }
+    .sidebar a {
+        color: rgb(251, 248, 248);
+        text-decoration: none;
+        padding: 25px;
+        margin-top: 10px;
+    }
+    .toggle-btn {
+        margin: 20px;
+    }
+</style>
+
+{% endblock title%}
+
+{% block sidebaropen %}
+    <a href="#" id="toggleSidebar"><i class="fas fa-list"></i> {% trans "menu" %}</a>
+{% endblock sidebaropen %}
+
+{% block content %}
+{% if person.is_employee %}
+<div style="width: 100%;background-color: red;">
+    employee page
+    <a href="{% url 'registering:login_employee' %}" id="login_employee" class="text-decoration: none;"><i class="fas fa-user-tie"></i> {% trans "logout"%}
+        employee</a><br><br>
+</div>
+{% endif %}
+
+        {% block contentside %}
+        {% endblock contentside%}
+        <div class="sidebar" id="sidebar">
+        <h5> {% trans "menu"%} </h5><br><br>
+        {% if emperson and not emperson.is_employee %}
+        <a href="{% url 'registering:login_employee' %}"id="login_employee" ><i class="fas fa-user-tie"></i> {% trans  "login employee"%}</a><br><br>
+        <a href="{% url 'documents:choose_document' %}" id="choose_document"> {% trans "choose document"%} </a><br><br>
+        <a href="{% url 'payment:orders' %}" id="orders"> {% trans "pay for orders" %} </a><br><br>
+        <a href="{% url 'users:assert_information' %}" id="assert_information"> {% trans "assert information"%} </a><br><br>
+        <a href="{% url 'payment:view_payments' %}" id="view_payments"> {% trans "show payments"%} </a><br><br>
+        {% else %}
+        <a href="{% url 'payment:enter_payment_amount' %}" id="enter_payment_amount"> {% trans "enter payments"%} </a><br><br>
+
+        {% endif %}
+        <a href="{% url 'documents:show_documents' %}" id="show_documents"> {% trans "show documents"%} </a><br><br>
+
+        <a href="{% url 'registering:log_out' %}"><i class="fas fa-sign-out-alt"></i>  {% trans "logout"%} </a><br><br>
+        <a href="#" id="closeSidebar">{% trans "close"%}</a>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const closeButton = document.getElementById('closeSidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        closeButton.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a');
+
+            links.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    links.forEach(function(otherLink) {
+                        otherLink.classList.remove('highlighted');
+                    });
+                    this.classList.add('highlighted');
+                });
+            });
+        });
+    </script>
+{% endblock content%}
