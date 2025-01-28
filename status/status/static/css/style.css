@@ -1,0 +1,64 @@
+/* static/css/styles.css
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.alert {
+    margin-top: 20px;
+}
+.field-optional,
+.field-error,
+.field-help {
+    display: none;
+}
+ static/css/styles.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;  /* إضافة نوع خط */
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;  /* لون خلفية البطاقة */
+}
+
+.card-title {
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.field-optional,
+.field-error,
+.field-help {
+    display: none;
+}
+
+/* تحسين الزر */
+.btn {
+    border-radius: 20px;  /* جعل الأزرار دائرية قليلاً */
+}
+
+.btn-primary {
+    background-color: #007bff;  /* لون أزرار التسجيل */
+    border: none;  /* إزالة الحدود */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;  /* لون عند التمرير فوق الزر */
+}
