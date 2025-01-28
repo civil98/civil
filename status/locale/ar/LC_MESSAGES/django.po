@@ -1,0 +1,792 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-30 21:17+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: documents/views.py:95 users/views.py:183
+msgid "Data saved successfully!"
+msgstr "تم حفظ البيانات بنجاح !"
+
+#: documents/views.py:221
+msgid "there's no one dead with this national number"
+msgstr "لا يوجد أحد متوفي لديه هذا الرقم الوطني"
+
+#: status/settings.py:147
+msgid "English"
+msgstr ""
+
+#: status/settings.py:148
+msgid "Arabic"
+msgstr ""
+
+#: templates/documents/confirm_family.html:65
+#: templates/documents/confirm_person.html:70 templates/pages/base.html:84
+#: templates/users/died_person.html:46 templates/users/parent.html:42
+#: templates/users/partner.html:45 templates/users/person_in_new.html:45
+msgid "welcome"
+msgstr "مرحبا"
+
+#: templates/documents/confirm_family.html:71
+#: templates/documents/confirm_person.html:76
+#: templates/users/partner_in.html:54 templates/users/partner_save.html:58
+#: templates/users/person_in.html:62 templates/users/person_in_new.html:62
+#: templates/users/person_save.html:58
+msgid "place of issue"
+msgstr "محل القيد"
+
+#: templates/documents/confirm_family.html:72
+#: templates/documents/confirm_person.html:77
+#: templates/users/partner_in.html:56 templates/users/partner_save.html:59
+#: templates/users/person_in.html:64 templates/users/person_in_new.html:64
+#: templates/users/person_save.html:59
+msgid "number of issue"
+msgstr "رقم القيد"
+
+#: templates/documents/confirm_family.html:75
+#: templates/documents/confirm_person.html:80
+msgid "name"
+msgstr "الاسم"
+
+#: templates/documents/confirm_family.html:75
+#: templates/documents/confirm_family.html:77
+#: templates/documents/confirm_family.html:78
+#: templates/documents/confirm_person.html:80
+#: templates/documents/confirm_person.html:82
+#: templates/documents/confirm_person.html:83
+msgid "national number"
+msgstr "الرقم الوطني"
+
+#: templates/documents/confirm_family.html:76
+#: templates/documents/confirm_person.html:81
+msgid "sur name"
+msgstr "النسبة"
+
+#: templates/documents/confirm_family.html:77
+#: templates/documents/confirm_person.html:82
+#: templates/users/partner_in.html:48 templates/users/partner_save.html:52
+#: templates/users/person_in.html:56 templates/users/person_in_new.html:56
+#: templates/users/person_save.html:52
+msgid "dad name"
+msgstr "اسم الأب"
+
+#: templates/documents/confirm_family.html:78
+#: templates/documents/confirm_person.html:83
+#: templates/users/partner_in.html:50 templates/users/partner_save.html:54
+#: templates/users/person_in.html:58 templates/users/person_in_new.html:58
+#: templates/users/person_save.html:54
+msgid "mom name"
+msgstr "اسم الأم"
+
+#: templates/documents/confirm_family.html:79
+#: templates/documents/confirm_person.html:84
+msgid "date and"
+msgstr "تاريخ و"
+
+#: templates/documents/confirm_family.html:79
+#: templates/documents/confirm_person.html:84
+msgid "place birth"
+msgstr "مكان الولادة"
+
+#: templates/documents/confirm_family.html:80
+#: templates/documents/confirm_person.html:85
+#: templates/users/partner_in.html:57 templates/users/partner_save.html:60
+#: templates/users/person_in.html:65 templates/users/person_in_new.html:65
+#: templates/users/person_save.html:60
+msgid "religion"
+msgstr "الديانة"
+
+#: templates/documents/confirm_family.html:81
+#: templates/documents/confirm_person.html:86 templates/users/parent.html:52
+#: templates/users/partner_in.html:58 templates/users/partner_save.html:61
+#: templates/users/person_in.html:66 templates/users/person_in_new.html:66
+#: templates/users/person_save.html:61
+msgid "gender"
+msgstr "الجنس"
+
+#: templates/documents/confirm_family.html:82
+#: templates/documents/confirm_person.html:87
+#: templates/users/partner_in.html:59 templates/users/partner_save.html:62
+#: templates/users/person_in.html:67 templates/users/person_in_new.html:67
+#: templates/users/person_save.html:62
+msgid "status"
+msgstr "الحالة الاجتماعية"
+
+#: templates/documents/confirm_family.html:83
+#: templates/documents/confirm_person.html:88
+msgid "date issue"
+msgstr "تاريخ القيد"
+
+#: templates/documents/confirm_family.html:103
+#: templates/documents/review_task.html:34 templates/users/partner_save.html:71
+#: templates/users/person_save.html:69
+msgid "refuse with note"
+msgstr "رفض مع ملاحظة"
+
+#: templates/documents/confirm_family.html:104
+#: templates/documents/confirm_person.html:110
+msgid "is done"
+msgstr "تم الإنجاز"
+
+#: templates/documents/confirm_family.html:105
+#: templates/documents/confirm_person.html:111
+msgid "print"
+msgstr "طباعة"
+
+#: templates/documents/confirm_family.html:107
+#: templates/documents/confirm_person.html:113
+msgid "get"
+msgstr "الحصول على"
+
+#: templates/documents/confirm_family.html:109
+#: templates/documents/confirm_person.html:115 templates/documents/note.html:19
+#: templates/documents/review_task.html:43 templates/documents/show_all.html:21
+#: templates/users/died_person.html:71 templates/users/parent.html:65
+#: templates/users/partner.html:72 templates/users/partner_in.html:74
+#: templates/users/partner_save.html:85 templates/users/person_in.html:80
+#: templates/users/person_in_new.html:80 templates/users/person_save.html:83
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: templates/documents/confirm_person.html:103
+msgid "place of dead"
+msgstr "مكان الوفاة"
+
+#: templates/documents/confirm_person.html:104
+msgid "date of dead"
+msgstr "تاريخ الوفاة"
+
+#: templates/documents/review_task.html:16
+#: templates/documents/show_documents.html:16
+msgid "document name"
+msgstr "اسم الوثيقة"
+
+#: templates/documents/review_task.html:17
+#: templates/documents/show_documents.html:17
+msgid "code"
+msgstr "رمز الوثيقة"
+
+#: templates/documents/review_task.html:18
+msgid "national ID of the Applicant"
+msgstr "الرقم الوطني لمقدم الطلب"
+
+#: templates/documents/review_task.html:20
+msgid "national ID of the Dependent"
+msgstr "الرقم الوطني للشخص المستفيد"
+
+#: templates/documents/review_task.html:24
+#: templates/documents/show_documents.html:20
+msgid "document done"
+msgstr " الوثيقة منجزة"
+
+#: templates/documents/review_task.html:26
+#: templates/documents/show_documents.html:22
+msgid "document rejected"
+msgstr "الوثيقة مرفوضة"
+
+#: templates/documents/review_task.html:28
+#: templates/documents/show_documents.html:24
+msgid "document pending"
+msgstr "الوثيقة قيد الانتظار "
+
+#: templates/documents/review_task.html:33
+msgid "check information"
+msgstr "التحقق من المعلومات "
+
+#: templates/documents/review_task.html:36
+msgid "add note"
+msgstr "إضافة ملاحظة"
+
+#: templates/documents/review_task.html:37
+msgid "Delete"
+msgstr "حذف"
+
+#: templates/documents/show_all.html:18 templates/users/partner_in.html:47
+#: templates/users/partner_save.html:51 templates/users/person_in.html:55
+#: templates/users/person_in_new.html:55 templates/users/person_save.html:51
+msgid "national id"
+msgstr "الرقم الوطني"
+
+#: templates/documents/show_documents.html:18
+msgid "date"
+msgstr "التاريخ"
+
+#: templates/not used/signup.html:8
+msgid "Create an Account"
+msgstr "إنشاء حساب"
+
+#: templates/not used/signup.html:24 templates/registering/signup.html:37
+msgid "Sign Up"
+msgstr "تسجيل حساب"
+
+#: templates/not used/signup.html:27 templates/registering/signup.html:39
+msgid "Already have an account?"
+msgstr "لديك حساب بالفعل ؟"
+
+#: templates/not used/signup.html:27 templates/registering/signup.html:39
+msgid "Log in"
+msgstr "تسجيل الدخول"
+
+#: templates/pages/about.html:4
+#, fuzzy
+#| msgid "About the Platform:"
+msgid "About the Platform"
+msgstr "حول المنصة:"
+
+#: templates/pages/about.html:41
+msgid "About the Platform:"
+msgstr "حول المنصة:"
+
+#: templates/pages/about.html:42
+msgid ""
+"Our platform is an initiative aimed at facilitating the procedures of civil "
+"status transactions for Syrian expatriates, providing them with direct "
+"access to a variety of services in an easy and convenient manner. The "
+"platform offers a wide range of services including adding personal "
+"information, extracting individual and family status documents, as well as "
+"marriage, death, and divorce contracts."
+msgstr ""
+"منصتنا هي مبادرة تهدف إلى تسهيل إجراءات معاملات الحالة المدنية للمغتربين "
+"السوريين، مما يوفر لهم وصولاً مباشراً إلى مجموعة متنوعة من الخدمات بطريقة سهلة "
+"ومريحة. تقدم المنصة مجموعة واسعة من الخدمات بما في ذلك إضافة المعلومات "
+"الشخصية، استخراج الوثائق الفردية والعائلية، وكذلك عقود الزواج والوفاة "
+"والطلاق."
+
+#: templates/pages/about.html:44
+msgid "Our Services:"
+msgstr "خدماتنا:"
+
+#: templates/pages/about.html:46
+msgid "Adding Personal Information:"
+msgstr "إضافة المعلومات الشخصية"
+
+#: templates/pages/about.html:46
+msgid ""
+"Users can easily and securely input and update their personal information "
+"through the platform, helping them maintain accurate and up-to-date records."
+msgstr ""
+" يمكن للمستخدمين إدخال وتحديث معلوماتهم الشخصية بسهولة وأمان من خلال المنصة، "
+"مما يساعدهم في الحفاظ على سجلات دقيقة ومحدثة."
+
+#: templates/pages/about.html:47
+msgid "Extracting Individual and Family Status Documents:"
+msgstr "استخراج الوثائق الفردية والعائلية:"
+
+#: templates/pages/about.html:47
+msgid ""
+"The platform provides an easy service for extracting individual and family "
+"status documents, enabling users to obtain official documents quickly and "
+"efficiently."
+msgstr ""
+" توفر المنصة خدمة سهلة لاستخراج الوثائق الفردية والعائلية، مما يمكّن "
+"المستخدمين من الحصول على الوثائق الرسمية بسرعة وكفاءة."
+
+#: templates/pages/about.html:48
+msgid "Marriage, Death, and Divorce Contracts:"
+msgstr "عقود الزواج والوفاة والطلاق:"
+
+#: templates/pages/about.html:48
+msgid ""
+"Users can create and extract marriage, death, and divorce contracts easily "
+"through the platform, with the necessary support and guidance to complete "
+"these processes."
+msgstr ""
+" يمكن للمستخدمين إنشاء واستخراج عقود الزواج والوفاة والطلاق بسهولة من خلال "
+"المنصة، مع الدعم والإرشاد اللازمين لإكمال هذه العمليات."
+
+#: templates/pages/about.html:49
+msgid "Electronic Payment Feature:"
+msgstr "ميزة الدفع الإلكتروني: "
+
+#: templates/pages/about.html:49
+msgid ""
+"The platform offers a secure and reliable online payment method, allowing "
+"users to complete payment transactions easily, smoothly, and securely."
+msgstr ""
+"تقدم المنصة وسيلة دفع إلكترونية آمنة وموثوقة، مما يسمح للمستخدمين بإجراء "
+"معاملات الدفع بسهولة وسلاسة وأمان."
+
+#: templates/pages/about.html:52
+msgid "Our Vision:"
+msgstr "رؤيتنا:"
+
+#: templates/pages/about.html:53
+msgid ""
+"We strive to make civil status transactions smoother and easier for Syrian "
+"expatriates through our digital platform, which provides innovative and "
+"reliable solutions to meet their needs."
+msgstr ""
+"نسعى لجعل معاملات الحالة المدنية أكثر سلاسة وسهولة للمغتربين السوريين من "
+"خلال منصتنا الرقمية، التي تقدم حلولاً مبتكرة وموثوقة لتلبية احتياجاتهم."
+
+#: templates/pages/about.html:55
+msgid "Our Values:"
+msgstr "قيمنا:"
+
+#: templates/pages/about.html:57
+msgid "Efficiency:"
+msgstr "الكفاءة: "
+
+#: templates/pages/about.html:57
+msgid ""
+"We aim to deliver high-quality services with the highest levels of "
+"efficiency."
+msgstr "نهدف إلى تقديم خدمات عالية الجودة بأعلى مستويات الكفاءة."
+
+#: templates/pages/about.html:58
+msgid "Transparency:"
+msgstr "الشفافية :"
+
+#: templates/pages/about.html:58
+msgid ""
+"We are committed to providing a transparent and trustworthy environment for "
+"users."
+msgstr " نحن ملتزمون بتوفير بيئة شفافة وموثوقة للمستخدمين."
+
+#: templates/pages/about.html:59
+msgid "Professionalism:"
+msgstr "الاحترافية:"
+
+#: templates/pages/about.html:59
+msgid "We adhere to professionalism and ethics in delivering our services."
+msgstr " نلتزم بالاحترافية والأخلاقيات في تقديم خدماتنا."
+
+#: templates/pages/about.html:62
+msgid ""
+"Join us today and benefit from a unique experience to facilitate your "
+"government transactions with ease and confidence."
+msgstr ""
+"انضم إلينا اليوم واستفد من تجربة فريدة لتسهيل معاملاتك الحكومية بسهولة وثقة."
+
+#: templates/pages/base.html:105 users/views.py:267
+msgid "main"
+msgstr " الصفحة الرئيسية"
+
+#: templates/pages/base.html:107 templates/pages/base_new.html:84
+msgid "login"
+msgstr "تسجيل الدخول"
+
+#: templates/pages/base.html:108 templates/pages/base_new.html:85
+msgid "signup"
+msgstr "تسجيل حساب"
+
+#: templates/pages/base.html:119 templates/pages/base_new.html:95
+msgid "call us"
+msgstr "اتصل بنا"
+
+#: templates/pages/base.html:120 templates/pages/base_new.html:96
+msgid "about"
+msgstr "حول المنصة"
+
+#: templates/pages/base.html:121 templates/pages/base_new.html:97
+msgid "address"
+msgstr "العنوان"
+
+#: templates/pages/base.html:121 templates/pages/base_new.html:97
+msgid "Syria"
+msgstr "سوريا"
+
+#: templates/pages/main.html:26 templates/pages/sidebar.html:70
+#: templates/pages/sidebar_new.html:58
+msgid "logout"
+msgstr "تسجيل خروج"
+
+#: templates/pages/sidebar.html:50 templates/pages/sidebar.html:57
+#: templates/pages/sidebar_new.html:50 templates/pages/sidebar_new.html:57
+msgid "menu"
+msgstr "القائمة"
+
+#: templates/pages/sidebar.html:59
+msgid "login employee"
+msgstr "تسجيل الدخول كموظف"
+
+#: templates/pages/sidebar.html:60
+msgid "choose document"
+msgstr "اختيار وثيقة"
+
+#: templates/pages/sidebar.html:61 templates/pages/sidebar_new.html:61
+msgid "pay for orders"
+msgstr "الدفع للطلبات"
+
+#: templates/pages/sidebar.html:62
+msgid "assert information"
+msgstr "إدخال معلومات"
+
+#: templates/pages/sidebar.html:63
+msgid "show payments"
+msgstr "عرض عمليات الدفع"
+
+#: templates/pages/sidebar.html:65
+msgid "enter payments"
+msgstr "إدخال عمليات الدفع"
+
+#: templates/pages/sidebar.html:68
+msgid "show documents"
+msgstr "عرض الوثائق"
+
+#: templates/pages/sidebar.html:71 templates/pages/sidebar_new.html:63
+msgid "close"
+msgstr "إغلاق"
+
+#: templates/pages/sidebar_new.html:59
+msgid "add personal information"
+msgstr "إدخال معلومات شخصية"
+
+#: templates/pages/sidebar_new.html:60
+msgid "show new documents"
+msgstr "عرض الوثائق الجديدة"
+
+#: templates/pages/sidebar_new.html:62
+msgid "show payments "
+msgstr "عرض عمليات الدفع"
+
+#: templates/payment/enter_payment_amount.html:11
+#: templates/payment/enter_payment_amount.html:16
+msgid "Enter Payment Amount"
+msgstr "إدخال عمليات الدفع"
+
+#: templates/payment/enter_payment_amount.html:23
+msgid "Enter transaction id"
+msgstr "رقم عملية التحويل"
+
+#: templates/payment/enter_payment_amount.html:24
+msgid "Enter Amount"
+msgstr "أدخل المبلغ"
+
+#: templates/payment/enter_payment_amount.html:26
+msgid "Save Payments"
+msgstr "حفظ عمليات الدفع"
+
+#: templates/payment/payment_page.html:10
+#: templates/payment/payment_page.html:14
+msgid "Payment"
+msgstr "عمليات الدفع"
+
+#: templates/payment/payment_page.html:19
+msgid "Enter Payment Reference"
+msgstr "أدخل معرف الدفع"
+
+#: templates/payment/payment_page.html:20
+msgid "Confirm Payment"
+msgstr "تأكيد عمليات الدفع"
+
+#: templates/payment/view_orders.html:7 templates/payment/view_orders.html:36
+msgid "Your Orders"
+msgstr "طلباتك"
+
+#: templates/payment/view_orders.html:37
+msgid "balance is"
+msgstr "الرصيد"
+
+#: templates/payment/view_orders.html:38
+msgid "Total Cost"
+msgstr "التكلفة الإجمالية"
+
+#: templates/payment/view_orders.html:50
+msgid "Proceed to Payment"
+msgstr "إنجاز الدفع"
+
+#: templates/payment/view_orders.html:52
+msgid "Pay"
+msgstr "تحويل"
+
+#: templates/payment/view_payments.html:9
+#: templates/payment/view_payments.html:14
+msgid "Your payments"
+msgstr "عمليات الدفع"
+
+#: templates/payment/view_payments.html:23
+msgid "cancel"
+msgstr "إلغاء"
+
+#: templates/registering/login.html:4
+msgid "Log In"
+msgstr "تسجيل الدخول"
+
+#: templates/registering/login.html:26
+msgid "Don't have an account?"
+msgstr "ليس لديك حساب ؟"
+
+#: templates/registering/login.html:26
+msgid "Sign up"
+msgstr "تسجيل حساب"
+
+#: templates/registering/login_employee.html:5
+#: templates/registering/login_employee.html:10
+msgid "Employee Login"
+msgstr "تسجيل دخول الموظف"
+
+#: templates/registering/login_employee.html:11
+msgid "password is 12345"
+msgstr "كلمة السر هي :12345"
+
+#: templates/registering/login_employee.html:16
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: templates/registering/login_employee.html:20
+msgid "Password"
+msgstr "كلمة السر"
+
+#: templates/registering/login_employee.html:23
+#, fuzzy
+#| msgid "login employee"
+msgid "Login as Employee"
+msgstr "تسجيل الدخول كموظف"
+
+#: templates/users/died_person.html:50
+msgid "national id for the dead"
+msgstr "الرقم الوطني للمتوفي"
+
+#: templates/users/died_person.html:51
+msgid "date of the death"
+msgstr "تاريخ الوفاة"
+
+#: templates/users/died_person.html:52
+msgid "place of the death"
+msgstr "مكان الوفاة"
+
+#: templates/users/died_person.html:54 templates/users/partner.html:55
+#: templates/users/partner_in.html:62 templates/users/partner_save.html:65
+#: templates/users/person_in.html:69 templates/users/person_in_new.html:69
+msgid "image"
+msgstr "الصورة"
+
+#: templates/users/died_person.html:68
+msgid "insert dead person"
+msgstr "إضافة شخص متوفى"
+
+#: templates/users/parent.html:8
+msgid "add person"
+msgstr "إضافة شخص"
+
+#: templates/users/parent.html:43
+msgid "please assert your parent information"
+msgstr "الرجاء إدخال معلومات الأب"
+
+#: templates/users/parent.html:49 templates/users/partner_in.html:45
+#: templates/users/partner_save.html:49 templates/users/person_in.html:53
+#: templates/users/person_in_new.html:53 templates/users/person_save.html:49
+msgid "first name"
+msgstr "الاسم"
+
+#: templates/users/parent.html:50 templates/users/partner_in.html:46
+#: templates/users/partner_save.html:50 templates/users/person_in.html:54
+#: templates/users/person_in_new.html:54 templates/users/person_save.html:50
+msgid "last name"
+msgstr "النسبة"
+
+#: templates/users/parent.html:51
+msgid "national num"
+msgstr "الرقم الوطني"
+
+#: templates/users/parent.html:53
+msgid "choose image"
+msgstr "اختيار صورة"
+
+#: templates/users/partner.html:46
+msgid "please assert your event information"
+msgstr "يرجى إدخال بيانات الواقعة"
+
+#: templates/users/partner.html:51
+msgid "national ID"
+msgstr "الرقم الوطني"
+
+#: templates/users/partner.html:52
+msgid "event type"
+msgstr "نوع الواقعة"
+
+#: templates/users/partner.html:53
+msgid "event date"
+msgstr "تاريخ الواقعة "
+
+#: templates/users/partner.html:54
+msgid "event place"
+msgstr "مكان الواقعة"
+
+#: templates/users/partner.html:69
+msgid "insert partner"
+msgstr "إدخال شريك"
+
+#: templates/users/partner_in.html:49 templates/users/partner_save.html:53
+#: templates/users/person_in.html:57 templates/users/person_in_new.html:57
+#: templates/users/person_save.html:53
+msgid "dad national id"
+msgstr "الرقم الوطني للأب"
+
+#: templates/users/partner_in.html:51 templates/users/partner_save.html:55
+#: templates/users/person_in.html:59 templates/users/person_in_new.html:59
+#: templates/users/person_save.html:55
+msgid "mom national id"
+msgstr "الرقم الوطني للأم"
+
+#: templates/users/partner_in.html:52 templates/users/partner_save.html:56
+#: templates/users/person_in.html:60 templates/users/person_in_new.html:60
+#: templates/users/person_save.html:56
+msgid "birth place"
+msgstr "مكان الولادة"
+
+#: templates/users/partner_in.html:53 templates/users/partner_save.html:57
+#: templates/users/person_in.html:61 templates/users/person_in_new.html:61
+#: templates/users/person_save.html:57
+msgid "birth date"
+msgstr "تاريخ الولادة"
+
+#: templates/users/partner_in.html:55 templates/users/person_in.html:63
+#: templates/users/person_in_new.html:63 templates/users/person_save.html:63
+msgid "date of issue"
+msgstr "تاريخ القيد"
+
+#: templates/users/partner_in.html:60 templates/users/partner_save.html:63
+msgid "date of event"
+msgstr "تاريخ الواقعة"
+
+#: templates/users/partner_in.html:61 templates/users/partner_save.html:64
+msgid "place of event"
+msgstr "مكان الواقعة"
+
+#: templates/users/partner_save.html:83 templates/users/person_save.html:81
+msgid "go back"
+msgstr "رجوع"
+
+#: templates/users/person_in.html:47 templates/users/person_in_new.html:47
+msgid "please note that any account with the same national id will be delete"
+msgstr "يرجى ملاحظة أنه أي حساب يملك نفس الرقم الوطني سوف يحذف"
+
+#: users/views.py:647
+msgid ""
+"The applicant does not have the right to access the data of the dead person"
+msgstr "صاحب الطلب لا يحق له الوصول لبيانات الشخص الميت"
+
+#~ msgid "orders"
+#~ msgstr "الطلبات"
+
+#~ msgid "No one has this national number"
+#~ msgstr "لا يوجد أحد لديه هذا الرقم الوطني"
+
+#~ msgid "add died person"
+#~ msgstr "إضافة شخص متوفى"
+
+#~ msgid "add partner"
+#~ msgstr "إضافة شريك"
+
+#~ msgid "birth register"
+#~ msgstr "شهادة ولادة"
+
+#, fuzzy
+#~ msgid "add event"
+#~ msgstr "تسجيل واقعة"
+
+#~ msgid "family register"
+#~ msgstr "سجل عائلي"
+
+#, fuzzy
+#~| msgid "marrige"
+#~ msgid "marriage"
+#~ msgstr "زواج"
+
+#~ msgid "divorce"
+#~ msgstr "طلاق"
+
+#, fuzzy
+#~| msgid "all marrige"
+#~ msgid "all marriage"
+#~ msgstr "كل السجلات الزواج"
+
+#~ msgid "marriage register"
+#~ msgstr "سجل زواج"
+
+#~ msgid "divorce all"
+#~ msgstr "كل سجلات الطلاق"
+
+#~ msgid "divorce register"
+#~ msgstr "سجل طلاق"
+
+#, fuzzy
+#~| msgid "death register"
+#~ msgid "dead register"
+#~ msgstr "شهادة وفاة"
+
+#~ msgid "death register"
+#~ msgstr "شهادة وفاة"
+
+#~ msgid "person who not in the data base"
+#~ msgstr "الشخص غير موجود في قاعدة البيانات"
+
+#, fuzzy
+#~| msgid "add person"
+#~ msgid "save person"
+#~ msgstr "إضافة شخص"
+
+#~ msgid "save person information"
+#~ msgstr "حفظ بيانات شخص"
+
+#~ msgid "add parent"
+#~ msgstr "إضافة أب"
+
+#~ msgid "save parent"
+#~ msgstr "حفظ أب"
+
+#~ msgid "add marrid"
+#~ msgstr "إضافة زواج"
+
+#~ msgid "add divorce"
+#~ msgstr "إضافة طلاق"
+
+#~ msgid "add widower"
+#~ msgstr "إضافة أرمل"
+
+#, fuzzy
+#~| msgid "add marrid"
+#~ msgid "save marrid"
+#~ msgstr "إضافة زواج"
+
+#, fuzzy
+#~| msgid "add divorce"
+#~ msgid "save divorce"
+#~ msgstr "إضافة طلاق"
+
+#, fuzzy
+#~| msgid "add widower"
+#~ msgid "save widower"
+#~ msgstr "إضافة أرمل"
+
+#, fuzzy
+#~| msgid "death register"
+#~ msgid "death record"
+#~ msgstr "شهادة وفاة"
+
+#, fuzzy
+#~| msgid "death register"
+#~ msgid "death save"
+#~ msgstr "شهادة وفاة"
+
+#~ msgid "please assert your dad first to get family register"
+#~ msgstr "يرجى إدخل الأب للحصول على سجل عائلي"
+
+#~ msgid "male"
+#~ msgstr "ذكر"
+
+#~ msgid "female"
+#~ msgstr "أنثى"
+
+#~ msgid "The holder of this national number is not deceased"
+#~ msgstr "صاحب هذا الرقم الوطني ليس متوفي"
+
+#~ msgid "paid"
+#~ msgstr "مدفوع"
